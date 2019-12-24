@@ -1,6 +1,27 @@
-# .spacemacs.d
+# Installation
 
-## Installation
+## Emacs
+download emacs from
+```
+https://www.gnu.org/software/emacs/download.html
+```
+and unzip to any directory
+create shortcut to runemacs.exe (on Windows)
+
+## Spacemacs
+clone spacemacs repo to your home directory
+```
+$ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+```
+run `runemacs.exe` on Windows
+or `emacs` not on Windows
+```
+$ cd ~/.emacs.d
+$ git checkout develop
+```
+then run emacs again
+
+## .spacemacs.d
 
 clone this repository
 ```
