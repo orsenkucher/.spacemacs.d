@@ -52,7 +52,7 @@ DiffUtils for Windows
 ```
 http://gnuwin32.sourceforge.net/packages/diffutils.htm
 ```
-Don't forget to update your environment PATH variable!
+Don't forget to update your environment *$PATH* variable!
 
 ## Helm search
 You may be lacking grep-like search, so
@@ -64,3 +64,7 @@ will help
 ## Good to remember
 *toggle-input-method*
 is used to write russian keystrokes on US keyboard
+
+to download icon fonts first
+`SPC SPC all-the-icons-install-fonts`
+and install them manually (Windows)
