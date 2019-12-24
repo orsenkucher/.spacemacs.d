@@ -59,7 +59,7 @@ values."
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
-   ;; configuration in `dotspacemacs/user-config'.
+   ;; configuration in `dotspacemacs//user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -132,14 +132,19 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(doom-one
+                         doom-one-light
+                         spacemacs-dark
                          spacemacs-light)
+   ;; dotspacemacs-mode-line-theme '(doom)
+   ;; dotspacemacs-mode-line-theme '(all-the-icons)
+
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+                               :size 17
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -321,6 +326,14 @@ you should place your code here."
   ;; (setq face-font-family-alternatives '(("Consolas" "FreeMono" "Symbola")))
   ;; face-font-family-alternatives 
   ;; (setq treemacs-no-png-images t)
+
+  ;; treemacs
+  (with-eval-after-load 'treemacs
+    (doom-themes-treemacs-config)
+    (define-key evil-treemacs-state-map (kbd "pd")  #'treemacs-remove-project-from-workspace)
+    (define-key evil-treemacs-state-map (kbd "pa") #'treemacs-add-project-to-workspace)
+    (define-key evil-treemacs-state-map (kbd "pr") #'treemacs-rename-project)
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
