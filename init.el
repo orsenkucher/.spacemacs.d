@@ -57,22 +57,22 @@ values."
          go-tab-width 4)
      unicode-fonts
      (dart :variables
-           dart-enable-analysis-server t
-           dart-backend 'lsp
+          ;;  dart-enable-analysis-server t
+          ;;  dart-backend 'lsp
            dart-format-on-save t)
      yaml
-     (lsp :variables
-          lsp-navigation 'peek
-          lsp-ui-doc-enable nil
-          lsp-enable-on-type-formatting nil
-          lsp-before-save-edits nil
-          lsp-enable-completion-at-point nil
-          lsp-keep-workspace-alive nil
-          lsp-eldoc-render-all nil
-          company-lsp-cache-candidates 'auto
-          company-lsp-async t
-          company-lsp-enable-snippet t
-          company-lsp-enable-recompletion t)
+    ;;  (lsp :variables
+    ;;       lsp-navigation 'peek
+    ;;       lsp-ui-doc-enable nil
+    ;;       lsp-enable-on-type-formatting nil
+    ;;       lsp-before-save-edits nil
+    ;;       lsp-enable-completion-at-point nil
+    ;;       lsp-keep-workspace-alive nil
+    ;;       lsp-eldoc-render-all nil
+    ;;       company-lsp-cache-candidates 'auto
+    ;;       company-lsp-async t
+    ;;       company-lsp-enable-snippet t
+    ;;       company-lsp-enable-recompletion t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -350,11 +350,11 @@ you should place your code here."
   ;; (evil-define-key 'normal global-map (kbd "<Lock>") (kbd "C"))
 
   ;; dart
-  (add-hook 'dart-mode-hook 'lsp)
+  ;; (add-hook 'dart-mode-hook 'lsp)
   ;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   ;; (setq highlight-indent-guides-method 'character)
   ;; (add-hook 'before-save-hook #'dartformat-before-save)
-  (add-hook 'before-save-hook #'flutter-hot-reload)
+  ;; (add-hook 'before-save-hook #'flutter-hot-reload)
 
   ;; treemacs
   (with-eval-after-load 'treemacs
