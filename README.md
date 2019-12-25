@@ -6,14 +6,17 @@ download emacs from
 https://www.gnu.org/software/emacs/download.html
 ```
 and unzip to any directory
+
 create shortcut to runemacs.exe (on Windows)
 
+add *$HOME* environment variable pointing to your user home dir (also on Windows)
 ## Spacemacs
 clone spacemacs repo to your home directory
 ```
 $ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ```
 run `runemacs.exe` on Windows
+
 or `emacs` not on Windows
 ```
 $ cd ~/.emacs.d
@@ -35,7 +38,7 @@ $ sh ./setup.sh
 ```
 
 ## GO
-Install go dependencies
+install go dependencies
 ```
 go get -u -v github.com/nsf/gocode
 go get -u -v github.com/rogpeppe/godef
@@ -52,10 +55,10 @@ DiffUtils for Windows
 ```
 http://gnuwin32.sourceforge.net/packages/diffutils.htm
 ```
-Don't forget to update your environment *$PATH* variable!
+don't forget to update your environment *$PATH* variable!
 
 ## Helm search
-You may be lacking grep-like search, so
+you may be lacking grep-like search, so
 ```
 choco install ag
 ```
