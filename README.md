@@ -52,6 +52,7 @@ gometalinter --install --update
 
 ## Flutter 
 *I had to remove dart/flutter support from my .spacemacs*
+
 You have to install *emacs27* with much faster json parser embedded into it for dart lsp to work properly 
 
 Flutter folder have to be in *$HOME* dir
