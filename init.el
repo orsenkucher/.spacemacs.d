@@ -44,6 +44,7 @@ This function should only modify configuration layer settings."
      (go :variables
          gofmt-command "goimports"
          go-format-before-save t
+         go-use-gometalinter t
          go-tab-width 4)
      unicode-fonts
      better-defaults
