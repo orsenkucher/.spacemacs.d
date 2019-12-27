@@ -50,6 +50,14 @@ go get -u -v github.com/alecthomas/gometalinter
 gometalinter --install --update
 ```
 
+## Flutter 
+*I had to remove dart/flutter support from my .spacemacs*
+You have to install *emacs27* with much faster json parser embedded into it for dart lsp to work properly 
+
+Flutter folder have to be in *$HOME* dir
+
+But to be honest, emacs flutter support is very poorly done compared to vscode
+
 ## Windows diff error
 DiffUtils for Windows
 ```
@@ -71,3 +79,10 @@ is used to write russian keystrokes on US keyboard
 to download icon fonts first
 `SPC SPC all-the-icons-install-fonts`
 and install them manually (Windows)
+
+## Uninstall
+```
+cd ~
+rm .spacemacs
+rm -rf .emacs.d
+```
