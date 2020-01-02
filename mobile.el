@@ -49,7 +49,7 @@ This function should only modify configuration layer settings."
      unicode-fonts
      better-defaults
      emacs-lisp
-     git
+     (git :variables git-magit-status-fullscreen t)
      helm
      ;; lsp
      markdown
