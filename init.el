@@ -42,14 +42,16 @@ This function should only modify configuration layer settings."
                       auto-completion-return-key-behavior nil
                       auto-completion-tab-key-behavior 'complete)
      (go :variables
+         go-backend 'go-mode
          gofmt-command "goimports"
          go-format-before-save t
-         go-use-gometalinter t
+         go-use-golangci-lint t
+         godoc-at-point-function 'godoc-gogetdoc
          go-tab-width 4)
      unicode-fonts
      better-defaults
      emacs-lisp
-     git
+     (git :variables git-magit-status-fullscreen t)
      helm
      ;; lsp
      markdown
@@ -196,7 +198,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-molokai
+   dotspacemacs-themes '(doom-molokai ;; [CASE] or doom-Iosvkem
                          spacemacs-dark
                          spacemacs-light)
 
@@ -214,8 +216,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Consolas"
-                               :size 13.5
+   dotspacemacs-default-font '("Consolas" ;; [CASE] or Source Code Pro
+                               :size 13.5 ;; [CASE] or 13.0
                                :weight normal
                                :width normal
                                :powerline-scale 1.2)
