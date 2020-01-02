@@ -32,8 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     ;; ----------------------------------------------------------------
+   '(;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
@@ -64,6 +63,21 @@ This function should only modify configuration layer settings."
      syntax-checking
      treemacs
      ;; version-control
+     (lsp :variables
+          lsp-navigation 'peek
+          lsp-ui-doc-enable nil
+          lsp-enable-on-type-formatting nil
+          lsp-before-save-edits nil
+          lsp-enable-completion-at-point nil
+          lsp-keep-workspace-alive nil
+          lsp-eldoc-render-all nil
+          company-lsp-cache-candidates 'auto
+          company-lsp-async t
+          company-lsp-enable-snippet t
+          company-lsp-enable-recompletion t)
+     (dart :variables
+           dart-backend 'lsp
+           dart-server-format-on-save t)
      )
 
    ;; List of additional packages that will be installed without being
