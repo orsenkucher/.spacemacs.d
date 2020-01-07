@@ -78,6 +78,9 @@ This function should only modify configuration layer settings."
      (dart :variables
            dart-backend 'lsp
            dart-server-format-on-save t)
+     (rust :variables
+           rust-backend 'racer
+           rust-format-on-save t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -212,7 +215,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-molokai ;; [CASE] (doom-molokai|doom-Iosvkem)
+   dotspacemacs-themes '(doom-Iosvkem ;; [CASE] (doom-molokai|doom-Iosvkem)
                          spacemacs-dark
                          spacemacs-light)
 
