@@ -1,0 +1,1 @@
+/home/orsenkucher/.fzf/shell/key-bindings.fish
