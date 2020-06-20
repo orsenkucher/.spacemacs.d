@@ -1,7 +1,7 @@
 xmodmap -e "keycode 134 = Super_L NoSymbol Super_L"
 
 abbr -a .. 'cd ..'
-abbr -a rm 'rm -i'
+# abbr -a rm 'rm -i'
 abbr -a ns nautilus
 abbr -a e nvim
 abbr -a gs 'git status'
@@ -34,3 +34,4 @@ end
 if test -f /home/orsenkucher/.autojump/share/autojump/autojump.fish;
 	source /home/orsenkucher/.autojump/share/autojump/autojump.fish; 
 end
+
