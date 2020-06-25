@@ -109,3 +109,5 @@ cd ~
 rm .spacemacs
 rm -rf .emacs.d
 ```
+## git signing
+[docs](https://help.github.com/en/github/authenticating-to-github/managing-commit-signature-verification)
