@@ -16,10 +16,12 @@
 #xmodmap -e "add Control = Control_L"
 
 abbr -a .. 'cd ..'
-# abbr -a rm 'rm -i'
 abbr -a ns nautilus
 abbr -a e nvim
 abbr -a gs 'git status'
+abbr -a ga 'git add .'
+abbr -a gc 'git commit -m'
+abbr -a gp 'git push'
 abbr -a cfg 'cd ~/.config/'
 abbr -a cfe 'nvim ~/.config/nvim/init.vim'
 abbr -a cff 'nvim ~/.config/fish/config.fish'
