@@ -53,6 +53,10 @@ function d
 	end
 end
 
+if test -f /data/data/com.termux/files/home/.autojump/share/autojump/autojump.fish; 
+	source /data/data/com.termux/files/home/.autojump/share/autojump/autojump.fish; 
+end
+
 if test -f /home/orsenkucher/.autojump/share/autojump/autojump.fish;
 	source /home/orsenkucher/.autojump/share/autojump/autojump.fish; 
 end
