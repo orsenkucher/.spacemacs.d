@@ -6,7 +6,7 @@ let mapleader = "\<Space>"
 call plug#begin()
 
 " nvim-lsp
-Plug 'neovim/nvim-lsp'
+"Plug 'neovim/nvim-lsp'
 
 " GUI enhancements
 Plug 'morhetz/gruvbox' 
@@ -24,12 +24,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
 
+Plug 'vim-syntastic/syntastic'
+
 call plug#end()
 
 " ale
-let g:ale_linters = {
-	\ 'go': ['gopls'],
-	\}
+"let g:ale_linters = {
+"	\ 'go': ['gopls'],
+"	\}
 
 " Lightline
 let g:lightline = {
@@ -50,6 +52,15 @@ endfunction
 " Use autocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
+" from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+"if executable('ag')
+"	set grepprg=ag\ --nogroup\ --nocolor
+"endif
+"if executable('rg')
+"	set grepprg=rg\ --no-heading\ --vimgrep
+"	set grepformat=%f:%l:%c:%m
+"endif
+
 " Theme
 colorscheme gruvbox
 
@@ -63,9 +74,15 @@ set showcmd " Show (partial) command in status line.
 set mouse=a " Enable mouse usage (all modes) in terminals
 set shortmess+=c " don't give |ins-completion-menu| messages.
 
-set rtp+=$GOROOT/misc/vim
+" set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
+let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+
 set autoindent
 set timeoutlen=300 " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 set encoding=utf-8
@@ -87,6 +104,8 @@ set signcolumn=yes
 
 " LanguageClient
 let g:go_fmt_command = "goreturns"
+let g:go_def_mapping_enabled = 0
+" let g:go_auto_type_info = 1
 " lua require'nvim_lsp'.gopls.setup{}
 
 " racer + rust
@@ -103,12 +122,49 @@ let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/
 map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 " Quick-save
 nmap <leader>w :w<CR>
 
 " Move by line
 nnoremap j gj
 nnoremap k gk
+
+" ; as :
+nnoremap ; :
+
+" Ctrl+c and Ctrl+j as Esc
+" Ctrl-j is a little awkward unfortunately:
+" https://github.com/neovim/neovim/issues/5916
+" So we also map Ctrl+k
+inoremap <C-j> <Esc>
+
+
+nnoremap <C-k> <Esc>
+inoremap <C-k> <Esc>
+vnoremap <C-k> <Esc>
+snoremap <C-k> <Esc>
+xnoremap <C-k> <Esc>
+cnoremap <C-k> <Esc>
+onoremap <C-k> <Esc>
+lnoremap <C-k> <Esc>
+tnoremap <C-k> <Esc>
+
+nnoremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+vnoremap <C-c> <Esc>
+snoremap <C-c> <Esc>
+xnoremap <C-c> <Esc>
+cnoremap <C-c> <Esc>
+onoremap <C-c> <Esc>
+lnoremap <C-c> <Esc>
+tnoremap <C-c> <Esc>
+
+" Ctrl+h to stop searching
+vnoremap <C-h> :nohlsearch<cr>
+nnoremap <C-h> :nohlsearch<cr>
 
 " Jump to start and end of line using the home row keys
 map H ^
@@ -134,6 +190,35 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set noexpandtab
+
+" Proper search
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+
+" <leader>s for Rg search
+noremap <leader>s :Rg<CR>
+
+let g:fzf_layout = { 'down': '~30%' }
+
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+"command! -bang -nargs=* Rg
+"  \ call fzf#vim#grep(
+"  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+"  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+"  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+"  \   <bang>0)
+"
+"function! s:list_cmd()
+"  let base = fnamemodify(expand('%'), ':h:.:S')
+"  return base == '.' ? 'fd --type file --follow' : printf('fd --type file --follow | proximity-sort %s', shellescape(expand('%')))
+"endfunction
+"
+"command! -bang -nargs=? -complete=dir Files
+"  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
+"  \                               'options': '--tiebreak=index'}, <bang>0)
 
 " coc
 " TextEdit might fail if hidden is not set.
@@ -177,7 +262,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-.> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -219,6 +304,10 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" Use <TAB> for selections ranges.
+"nmap <silent> <TAB> <Plug>(coc-range-select)
+"xmap <silent> <TAB> <Plug>(coc-range-select)
 
 augroup mygroup
   autocmd!
@@ -270,18 +359,18 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>

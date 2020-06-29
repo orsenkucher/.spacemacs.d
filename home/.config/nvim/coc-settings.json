@@ -1,0 +1,10 @@
+{
+	"rust-analyzer.serverPath":"/home/orsenkucher/.cargo/bin/rust-analyzer",
+	"languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
+}

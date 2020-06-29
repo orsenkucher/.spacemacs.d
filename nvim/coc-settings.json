@@ -1,4 +1,0 @@
-{
-	"rust-analyzer.cargo-watch.enable": true,
-	"rust-analyzer.serverPath":"/home/orsenkucher/.cargo/bin/rust-analyzer" 
-}

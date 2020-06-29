@@ -1,5 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export --path GOPATH:/home/orsenkucher/go
+SETUVAR --export GOROOT:/usr/local/go
+SETUVAR --export --path PATH:/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/home/orsenkucher/\x2eautojump/bin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/home/orsenkucher/\x2efzf/bin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/home/orsenkucher/\x2eautojump/bin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/home/orsenkucher/\x2ecargo/bin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/usr/local/sbin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/usr/local/bin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/usr/sbin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/usr/bin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/sbin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/bin\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/usr/games\x1e/home/orsenkucher/go/bin\x1e/usr/local/go/bin\x1e/usr/local/games
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e
 SETUVAR _fish_abbr_cfe:nvim\x20\x7e/\x2econfig/nvim/init\x2evim
@@ -10,8 +13,13 @@ SETUVAR _fish_abbr_cfgf:nvim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_cfgfish:cfg\x20\x26\x26\x20e\x20fish/config\x2efish
 SETUVAR _fish_abbr_cfgvim:cfg\x20\x26\x26\x20e\x20nvim/init\x2evim
 SETUVAR _fish_abbr_e:nvim
+SETUVAR _fish_abbr_ga:git\x20add\x20\x2e
+SETUVAR _fish_abbr_gc:git\x20commit\x20\x2dm
+SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_l:exa
+SETUVAR _fish_abbr_la:exa\x20\x2da
+SETUVAR _fish_abbr_lg:git\x20lg
 SETUVAR _fish_abbr_ll:exa\x20\x2dl
 SETUVAR _fish_abbr_lll:exa\x20\x2dla
 SETUVAR _fish_abbr_ls:exa
