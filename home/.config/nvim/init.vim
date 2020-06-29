@@ -9,7 +9,8 @@ call plug#begin()
 "Plug 'neovim/nvim-lsp'
 
 " GUI enhancements
-Plug 'morhetz/gruvbox' 
+" Plug 'morhetz/gruvbox' 
+Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 
@@ -21,7 +22,7 @@ Plug 'junegunn/fzf.vim'
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'dense-analysis/ale'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
 
 Plug 'vim-syntastic/syntastic'
@@ -33,8 +34,9 @@ call plug#end()
 "	\ 'go': ['gopls'],
 "	\}
 
-" Lightline
+" Lightline (wombat|gruvbox)
 let g:lightline = {
+	  \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -77,7 +79,7 @@ set shortmess+=c " don't give |ins-completion-menu| messages.
 " set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
+" let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_always_populate_loc_list = 1
@@ -103,8 +105,9 @@ set printoptions=paper:letter
 set signcolumn=yes
 
 " LanguageClient
-let g:go_fmt_command = "goreturns"
-let g:go_def_mapping_enabled = 0
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" let g:go_fmt_command = "goreturns"
+" let g:go_def_mapping_enabled = 0
 " let g:go_auto_type_info = 1
 " lua require'nvim_lsp'.gopls.setup{}
 

@@ -1,10 +1,16 @@
 {
+	"coc.preferences.formatOnSaveFiletypes": ["go"],
 	"rust-analyzer.serverPath":"/home/orsenkucher/.cargo/bin/rust-analyzer",
 	"languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
+    	"golang": {
+      		"command": "gopls",
+		"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+		"filetypes": ["go"],
+	  	"initializationOptions": {
+			"diagnosticsEnabled": true,
+		        "formatTool": "goreturns",
+        		"lintTool": "golangci-lint"
+      }
     }
   }
 }
