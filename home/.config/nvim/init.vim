@@ -138,6 +138,11 @@ nnoremap k gk
 " ; as :
 nnoremap ; :
 
+" Automatically closing braces
+" inoremap {<CR> {<CR>}<Esc>ko<tab>
+" inoremap [<CR> [<CR>]<Esc>ko<tab>
+" inoremap (<CR> (<CR>)<Esc>ko<tab>
+
 " Ctrl+c and Ctrl+j as Esc
 " Ctrl-j is a little awkward unfortunately:
 " https://github.com/neovim/neovim/issues/5916
@@ -188,15 +193,18 @@ set splitbelow
 set undodir=~/.vimdid
 set undofile
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " Commenting blocks of code.
 augroup commenting_blocks_of_code
   autocmd!
-  autocmd FileType c,cpp,java,scala,go,rs let b:comment_leader = '// '
-  autocmd FileType sh,ruby,python         let b:comment_leader = '# '
-  autocmd FileType conf,fstab             let b:comment_leader = '# '
-  autocmd FileType tex                    let b:comment_leader = '% '
-  autocmd FileType mail                   let b:comment_leader = '> '
-  autocmd FileType vim                    let b:comment_leader = '" '
+  autocmd FileType c,cpp,java,scala,go,rust let b:comment_leader = '// '
+  autocmd FileType sh,ruby,python           let b:comment_leader = '# '
+  autocmd FileType conf,fstab               let b:comment_leader = '# '
+  autocmd FileType tex                      let b:comment_leader = '% '
+  autocmd FileType mail                     let b:comment_leader = '> '
+  autocmd FileType vim                      let b:comment_leader = '" '
 augroup END
 noremap <silent> <leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
