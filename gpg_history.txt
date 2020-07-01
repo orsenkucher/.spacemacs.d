@@ -1,0 +1,4 @@
+1 - oldest - pop_os! gpg
+2 - windows pgp
+3 - 30.06.20 - termux(nexus) gpg
+

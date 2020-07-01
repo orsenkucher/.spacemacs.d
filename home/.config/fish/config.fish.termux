@@ -18,6 +18,8 @@
 set GOPATH /data/data/com.termux/files/home/go
 set PATH $PATH $GOPATH/bin
 
+set -x GPG_TTY (tty)
+
 abbr -a .. 'cd ..'
 abbr -a ns nautilus
 abbr -a e nvim
@@ -51,6 +53,10 @@ function d
 		end
 		cd ..
 	end
+end
+
+if test -f /data/data/com.termux/files/home/.autojump/share/autojump/autojump.fish; 
+	source /data/data/com.termux/files/home/.autojump/share/autojump/autojump.fish; 
 end
 
 if test -f /home/orsenkucher/.autojump/share/autojump/autojump.fish;
