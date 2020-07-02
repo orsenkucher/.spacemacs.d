@@ -18,6 +18,7 @@
 abbr -a .. 'cd ..'
 abbr -a ns nautilus
 abbr -a e nvim
+abbr -a c cargo
 abbr -a gs 'git status'
 abbr -a ga 'git add .'
 abbr -a gc 'git commit -m'
