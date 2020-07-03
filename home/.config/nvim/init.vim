@@ -178,6 +178,10 @@ nnoremap <C-h> :nohlsearch<cr>
 map H ^
 map L $
 
+" Use enter to insert new line
+nmap <CR> o<Esc>k
+nnoremap <C-J> i<CR><Esc>k$
+
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
