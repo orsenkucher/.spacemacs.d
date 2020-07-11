@@ -4,9 +4,13 @@ lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(
 lg = !"git lg1"
 [credential]
 	helper = store
+[core]
+	editor = nvim
 [user]
-	name = orsenkucher
+	name = Orsen
 	email = orsen.kucher@gmail.com
 	signingkey = 68E1F05DFEEDC81C
 [commit]
-        gpgsign = true
+	gpgsign = true
+[pull]
+	rebase = false
