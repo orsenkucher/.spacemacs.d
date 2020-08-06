@@ -1,4 +1,5 @@
 {
+	"suggest.timeout":15000,
 	"coc.preferences.formatOnSaveFiletypes": ["go"],
 	"rust-analyzer.serverPath":"/data/data/com.termux/files/home/.cargo/bin/rust-analyzer",
 	"languageserver": {
