@@ -29,6 +29,8 @@ Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
+set clipboard+=unnamedplus
+
 " ale
 "let g:ale_linters = {
 "	\ 'go': ['gopls'],
